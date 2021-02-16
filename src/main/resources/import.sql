@@ -1,0 +1,13 @@
+INSERT INTO public.sensor (id, name) VALUES (1, null);
+INSERT INTO public.sensor (id, name) VALUES (2, null);
+INSERT INTO public.sensor (id, name) VALUES (3, null);
+INSERT INTO public.sensor (id, name) VALUES (4, null);
+INSERT INTO public.sensor (id, name) VALUES (5, null);
+INSERT INTO public.sensor (id, name) VALUES (6, null);
+INSERT INTO public.sensor (id, name) VALUES (7, null);
+INSERT INTO public.sensor (id, name) VALUES (8, null);
+INSERT INTO public.sensor (id, name) VALUES (9, null);
+INSERT INTO public.sensor (id, name) VALUES (0, null);
+INSERT INTO public.subject (id, name) VALUES (0, null);
+INSERT INTO public.subject (id, name) VALUES (1, null);
+INSERT INTO public.subject (id, name) VALUES (2, null);

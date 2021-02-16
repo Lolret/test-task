@@ -1,0 +1,16 @@
+version: "3"
+services:
+  postgres:
+    image: postgres
+    volumes:
+      - ./setup.sh:/docker-entrypoint-initdb.d/initdb.sh
+      - ./data.json:/data.json
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=user1
+      - POSTGRES_PASSWORD=1qaz2wsx!!
+      - POSTGRES_DB=sensor
+      - ALLOW_IP_RANGE=0.0.0.0/0
+volumes:
+  db-data:
