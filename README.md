@@ -5,12 +5,12 @@
 
 После разворачивания проекта доступна swagger-спецификация по пути /swagger-ui.html
 
-swagger не настроен.
+Swagger не настроен.
 
 Примеры запросов в файле api.http.
 
 Для сборки используется maven вместо gradle
-(сделать сборку на gradle не удалось за приемлемое время)
+(сделать сборку на gradle не удалось за приемлемое время).
 
 Не сделано (из того чтобы сделать хотелось бы):
 - маппинг Entity<->DTO
@@ -27,7 +27,7 @@ swagger не настроен.
 
     python generate_sensor_data.py (Если планируется популяция базы)
     docker-compose up -d
-    mvn compile spring-boot:run
+    mvnw.cmd compile spring-boot:run
 
 ## Популяция базы:
 
