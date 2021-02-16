@@ -17,27 +17,27 @@ swagger не настроен.
 - докеризация проекта
 - полный запуск/популяция всего через docker-compose
 
-Для запуска еобходимо:
+Для запуска необходимо:
 
     python
     docker, docker-compose
     java8
 
-Запуск:
+# Запуск
 
     python generate_sensor_data.py (Если планируется популяция базы)
     docker-compose up -d
     mvn compile spring-boot:run
 
-Популяция базы:
+## Популяция базы:
 
-inside docker postgres container:
+### inside docker postgres container:
 
     apt-get update
     apt-get install jq
     cat data.json | jq -cr '.[]' | sed 's/\\[tn]//g' > output.json
     
-inside db:
+### inside db:
 
         CREATE table public.temp_json (values jsonb);
         COPY public.temp_json FROM '/output.json';
@@ -59,13 +59,16 @@ inside db:
           FROM temp_json;
           
           
-Тестирование:
-    Необходимое:
+# Тестирование
+
+## Необходимое:
+
     docker, docker-compose
     java8
 
     - Docker server version should be at least 1.6.0
     - Docker environment should have more than 2GB free disk space
 
-    Запуск:
+## Запуск:
+
     mvnw.cmd compile test
