@@ -4,6 +4,7 @@
 (/api/history?id=1&from=1565654400&to=1565827200)
 
 После разворачивания проекта доступна swagger-спецификация по пути /swagger-ui.html
+
 swagger не настроен.
 
 Примеры запросов в файле api.http.
@@ -16,18 +17,20 @@ swagger не настроен.
 - докеризация проекта
 - полный запуск/популяция всего через docker-compose
 
-Необходимое:
-python
-docker, docker-compose
-java8
+Для запуска еобходимо:
 
-Для запуска:
+    python
+    docker, docker-compose
+    java8
+
+Запуск:
 
     python generate_sensor_data.py (Если планируется популяция базы)
     docker-compose up -d
     mvn compile spring-boot:run
 
-Популяция базы.
+Популяция базы:
+
 inside docker postgres container:
 
     apt-get update
