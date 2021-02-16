@@ -10,6 +10,7 @@ swagger не настроен.
 
 Для сборки используется maven вместо gradle
 (сделать сборку на gradle не удалось за приемлемое время)
+
 Не сделано (из того чтобы сделать хотелось бы):
 - маппинг Entity<->DTO
 - докеризация проекта
@@ -21,17 +22,20 @@ docker, docker-compose
 java8
 
 Для запуска:
-python generate_sensor_data.py (Если планируется популяция базы)
-docker-compose up -d
-mvn compile spring-boot:run
 
-Популяция базы:
-    inside docker postgres container:
-        apt-get update
-        apt-get install jq
-        cat data.json | jq -cr '.[]' | sed 's/\\[tn]//g' > output.json
+    python generate_sensor_data.py (Если планируется популяция базы)
+    docker-compose up -d
+    mvn compile spring-boot:run
+
+Популяция базы.
+inside docker postgres container:
+
+    apt-get update
+    apt-get install jq
+    cat data.json | jq -cr '.[]' | sed 's/\\[tn]//g' > output.json
     
-    inside db:
+inside db:
+
         CREATE table public.temp_json (values jsonb);
         COPY public.temp_json FROM '/output.json';
     
