@@ -6,8 +6,8 @@
 
 ### Возвращены до 1000 объектов
 GET localhost:8080/api/history
-### Пагинация. Возвращены 100 обьектов, 4 "страницы"
-GET localhost:8080/api/history?size=100&page=4
+### Пагинация. Возвращены 1001 обьект, 4 "страница"
+GET localhost:8080/api/history?size=1001&page=4
 
 ### Фильтрация
 ### Возвращены все обьекты с time > 1613189196
@@ -15,9 +15,9 @@ GET localhost:8080/api/history?from=1613189196
 ### Возвращены все обьекты с time < 1613189196
 GET localhost:8080/api/history?to=1613189196
 ### Возвращены все обьекты с value = 1
-GET localhost:8080/api/history?value=1
+GET localhost:8080/api/history?time=1613189196
 ### Возвращены все обьекты с value != 1
-GET localhost:8080/api/history?value=ne(1)
+GET localhost:8080/api/history?time=ne(1613189196)
 ### Возвращены все обьекты с time > 1613189196
 GET localhost:8080/api/history?time=gt(1613189196)
 ### Возвращены все обьекты с time < 1613189196
@@ -25,8 +25,8 @@ GET localhost:8080/api/history?time=lt(1613189196)
 ### Возвращены все обьекты с time <= 1613189196
 GET localhost:8080/api/history?time=lte(1613189196)
 ###
-### Возвращены все обьекты с measure.value < 1.613189196E9 && !(measure.time > 1613189196)
-GET localhost:8080/api/history?value=lt(1613189196)&time=not(gt(1613189196))
+### Возвращены все обьекты с measure.time < 1.613189196E9 && !(measure.time > 1613189196)
+GET localhost:8080/api/history?time=lt(1613189196)&time=not(lt(1613189196))
 ### Возвращены все обьекты id объекта(здания) != 1.
 GET localhost:8080/api/history?objectId=ne(1)
 ### Возвращены все обьекты sensorId ∈ (3;6] && objectId=1
@@ -72,5 +72,6 @@ Content-Type: application/json
 
 ### swagger-json
 GET localhost:8080/v2/api-docs
+
 
 ###

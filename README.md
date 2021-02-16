@@ -4,11 +4,12 @@
 (/api/history?id=1&from=1565654400&to=1565827200)
 
 После разворачивания проекта доступна swagger-спецификация по пути /swagger-ui.html
+swagger не настроен.
 
 Примеры запросов в файле api.http.
 
 Для сборки используется maven вместо gradle
- (развернуть сборку на gradle не удалось за приемлемое время)
+(сделать сборку на gradle не удалось за приемлемое время)
 Не сделано (из того чтобы сделать хотелось бы):
 - маппинг Entity<->DTO
 - докеризация проекта
@@ -49,3 +50,15 @@ mvn compile spring-boot:run
           CAST(values->'sensorId'  as bigint) as object_id,
           CAST(values->'objectId'  as bigint) as sensor_id
           FROM temp_json;
+          
+          
+Тестирование:
+    Необходимое:
+    docker, docker-compose
+    java8
+
+    - Docker server version should be at least 1.6.0
+    - Docker environment should have more than 2GB free disk space
+
+    Запуск:
+    mvnw.cmd compile test

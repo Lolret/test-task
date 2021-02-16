@@ -30,7 +30,7 @@ import java.util.Map;
 @Slf4j
 @RequestMapping("/api")
 @RequiredArgsConstructor
-public class SensorController {
+public class MeasureController {
 
     private final MeasureService sensorService;
     private final MeasureRepo sensorRepo;
@@ -42,15 +42,8 @@ public class SensorController {
                     Predicate predicate,
             @RequestParam(required = false)
                     MultiValueMap<String, String> paramArrays,
-//            @ApiParam(value = "Начальный индекс для ресурсов, которые должны быть предоставлены в ответе")
-//            @RequestParam(value = "offset", required = false, defaultValue = "0")
-//                    Integer offset,
-//            @ApiParam(value = "Количество объектов, которые должны быть предоставлены в ответе")
-//            @RequestParam(required = true, defaultValue = "1000")
-//                    Integer limit
             @PageableDefault(page = 0, size = 1000) Pageable pageable
     ) {
-
         predicate = sensorService.preparePredicate(paramArrays, predicate);
         List<Measure> sensor = sensorService.getSensor(predicate, pageable);
         return ResponseEntity.ok()

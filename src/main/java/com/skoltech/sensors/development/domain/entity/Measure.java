@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.skoltech.sensors.development.domain.EntityIdResolver;
 import io.swagger.annotations.ApiModel;
+import lombok.Builder;
 import lombok.Data;
 
 import javax.persistence.CascadeType;
@@ -24,6 +25,7 @@ import javax.validation.constraints.NotNull;
 @Data
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+
 public class Measure {
 
     @Id
