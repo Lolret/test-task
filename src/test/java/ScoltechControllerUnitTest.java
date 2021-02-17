@@ -14,7 +14,7 @@ import static org.mockito.BDDMockito.then;
 import static org.mockito.Mockito.eq;
 import static org.mockito.Mockito.mock;
 
-class SendMoneyControllerPlainTest {
+class ScoltechControllerUnitTest {
 
     private MeasureService measureService =
             mock(MeasureService.class);
