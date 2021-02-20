@@ -29,7 +29,7 @@ public interface MeasureRepo extends JpaRepository<Measure, Long>,
                 .all(ExpressionProviderFactory::getPredicate);
         bindings.bind(root.subject.id).as("objectId")
                 .all(ExpressionProviderFactory::getPredicate);
-        bindings.bind(root.sensor.id).as("sensorId")
+        bindings.bind(root.sensor.id).as("id")
                 .all(ExpressionProviderFactory::getPredicate);
     }
 

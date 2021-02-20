@@ -32,9 +32,9 @@ class SkoltechControllerUnitTest {
         m1.setTime(100L);   m2.setTime(200L);
         // when
         List<Measure> measures = Arrays.asList(m1, m2);
-        given(measureService
-                .createSensor(eq(measures)))
-                .willReturn(measures);
+//        given(measureService
+//                .createSensor(eq(measures)))
+//                .willReturn(measures);
 
         ResponseEntity response = measureController
                 .createResources(measures);
