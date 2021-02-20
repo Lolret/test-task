@@ -2,6 +2,7 @@ package com.skoltech.sensors.development.controller;
 
 import com.querydsl.core.types.Predicate;
 import com.skoltech.sensors.development.domain.entity.Measure;
+import com.skoltech.sensors.development.dto.AvgValueDTO;
 import com.skoltech.sensors.development.dto.LatestValueDTO;
 import com.skoltech.sensors.development.repository.MeasureRepo;
 import com.skoltech.sensors.development.service.MeasureService;
@@ -24,7 +25,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @Slf4j
@@ -72,11 +72,8 @@ public class MeasureController {
 
     @GetMapping(value = "/avg")
     @ResponseBody
-    public ResponseEntity<Map<Long, Double>> getAvgValueGroupBySubject(
-            @QuerydslPredicate(root = Measure.class)
-                    Predicate predicate
-    ) {
+    public ResponseEntity<List<AvgValueDTO>> getAvgValueGroupBySubject() {
         return ResponseEntity.ok()
-                .body(sensorService.getAvgValueGroupBySubject(predicate));
+                .body(sensorRepo.findAverage());
     }
 }

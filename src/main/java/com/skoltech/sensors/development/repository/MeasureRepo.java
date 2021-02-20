@@ -1,5 +1,6 @@
 package com.skoltech.sensors.development.repository;
 
+import com.skoltech.sensors.development.dto.AvgValueDTO;
 import com.skoltech.sensors.development.dto.LatestValueDTO;
 import com.skoltech.sensors.development.domain.entity.Measure;
 import com.skoltech.sensors.development.domain.entity.QMeasure;
@@ -51,4 +52,10 @@ public interface MeasureRepo extends JpaRepository<Measure, Long>,
     List<LatestValueDTO>
     findAggregate(
             @Param("subjectId") Long subjectId);
+
+
+    @Query(value = "select subject_id as objectId, avg(value) as avgValue from measure group by subject_id;",
+            nativeQuery = true)
+    List<AvgValueDTO> findAverage();
+
 }

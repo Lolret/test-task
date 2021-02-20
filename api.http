@@ -8,14 +8,13 @@
 GET localhost:8080/api/history
 ### Пагинация. Возвращены 1001 обьект, 4 "страница"
 GET localhost:8080/api/history?size=1001&page=4
-
 ### Фильтрация
 ### Возвращены все обьекты с time > 1613189196
 GET localhost:8080/api/history?from=1613189196
 ### Возвращены все обьекты с time < 1613189196
 GET localhost:8080/api/history?to=1613189196
 ### Возвращены все обьекты с time = 1613189196
-GET localhost:8080/api/history?time=1
+GET localhost:8080/api/history?time=1613189196
 ### Возвращены все обьекты с time != 1613189196
 GET localhost:8080/api/history?time=ne(1613189196)
 ### Возвращены все обьекты с time > 1613189196
@@ -38,10 +37,6 @@ GET localhost:8080/api/latest?id=1
 ################### /api/avg ###################
 ### Возвращены средние из текущих значений датчиков для каждого объекта
 GET localhost:8080/api/avg
-###
-GET localhost:8080/api/avg?time=lt(1613235257)&time=gt(1613235254)
-###
-
 ################### /api/save ###################
 ### сохранить измерения датчиков,
 ### передаваемые как список json структур
