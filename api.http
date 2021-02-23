@@ -10,7 +10,7 @@ GET localhost:8080/api/history
 GET localhost:8080/api/history?size=1001&page=4
 ### Фильтрация
 GET localhost:8080/api/history?id=1&from=1565654400&to=1565827200
-###
+### Возвращены все обьекты с sensor id=4 && object Id=2
 GET localhost:8080/api/history?id=4&objectId=2
 ### Возвращены все обьекты с time > 1613189196
 GET localhost:8080/api/history?from=1613189196
