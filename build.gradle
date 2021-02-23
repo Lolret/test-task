@@ -47,4 +47,6 @@ dependencies {
 
 test {
     useJUnitPlatform()
+    exclude '**/SkoltechIntegrationTest.class'
+
 }
