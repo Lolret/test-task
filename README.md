@@ -28,7 +28,7 @@
     gradlew bootRun
         ИЛИ
             mvnw compile spring-boot:run
-            **mvnw.cmd** compile spring-boot:run **для win-машин**
+            (mvnw.cmd для win-машин)
 
 ## Популяция базы:
 ### inside db:
