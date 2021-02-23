@@ -45,7 +45,7 @@ public interface MeasureRepo extends JpaRepository<Measure, Long>,
             "                OVER (PARTITION BY sensor_id " +
             "                    ORDER BY time)                                            as rn " +
             "         FROM measure " +
-            "    where subject_id = :subjectId  " +
+            "    where object_id = :subjectId  " +
             "     ) as dt " +
             "WHERE rn = 1;",
             nativeQuery = true)
@@ -54,7 +54,7 @@ public interface MeasureRepo extends JpaRepository<Measure, Long>,
             @Param("subjectId") Long subjectId);
 
 
-    @Query(value = "select subject_id as objectId, avg(value) as avgValue from measure group by subject_id;",
+    @Query(value = "select object_id as objectId, avg(value) as avgValue from measure group by object_id;",
             nativeQuery = true)
     List<AvgValueDTO> findAverage();
 

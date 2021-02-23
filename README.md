@@ -50,7 +50,7 @@ Swagger не настроен.
     SELECT nextval('id_seq'),
            CAST(values -> 'time' as bigint)            as time,
            CAST(values -> 'value' as double precision) as value,
-           CAST(values -> 'sensorId' as bigint)        as subject_id,
+           CAST(values -> 'sensorId' as bigint)        as object_id,
            CAST(values -> 'objectId' as bigint)        as sensor_id
     FROM temp_json;
           

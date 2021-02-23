@@ -50,7 +50,7 @@ public class Measure {
             scope = Subject.class)
     @JsonIdentityReference(alwaysAsId = true)
     @ManyToOne(cascade = {CascadeType.REFRESH, CascadeType.DETACH})
-    @JoinColumn(name = "subject_id")
+    @JoinColumn(name = "object_id")
     @JsonProperty("objectId")
     private Subject subject;
 
