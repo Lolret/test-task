@@ -10,7 +10,7 @@
 
 Примеры запросов в файле api.http.
 
-Сборка возможно через сборщики maven и gradle.
+Запуск возможен через сборщики maven и gradle.
 
 Для запуска необходимо:
 
@@ -23,7 +23,7 @@
     cd ./test-task
     python generate_sensor_data.py (Если планируется популяция базы (~2.5m объектов))
     
-    docker-compose up -d
+    docker-compose up -d (разворачивание постгрес может занимать ~15 сек)
     
     gradlew bootRun
         ИЛИ
