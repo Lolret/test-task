@@ -9,6 +9,9 @@ GET localhost:8080/api/history
 ### Пагинация. Возвращены 1001 обьект, 4 "страница"
 GET localhost:8080/api/history?size=1001&page=4
 ### Фильтрация
+GET localhost:8080/api/history?id=1&from=1565654400&to=1565827200
+###
+GET localhost:8080/api/history?id=4&objectId=2
 ### Возвращены все обьекты с time > 1613189196
 GET localhost:8080/api/history?from=1613189196
 ### Возвращены все обьекты с time < 1613189196
@@ -24,10 +27,8 @@ GET localhost:8080/api/history?time=lt(1613189196)
 ### Возвращены все обьекты с time <= 1613189196
 GET localhost:8080/api/history?time=lte(1613189196)
 ###
-### Возвращены все обьекты с measure.time < 1.613189196E9 && !(measure.time > 1613189196)
+### Возвращены все обьекты с measure.time < 1613189196 || !(measure.time < 1613189196)
 GET localhost:8080/api/history?time=lt(1613189196)&time=not(lt(1613189196))
-### Возвращены все обьекты sensorId ∈ (3;6] && objectId=1
-GET localhost:8080/api/history?id=gt(3)&id=lte(6)&objectId=1
 
 ################### /api/latest ###################
 ### Возвращены текущие (последние на данных момент) значения всех датчиков для заданного объекта.
