@@ -19,7 +19,6 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.validation.constraints.NotNull;
 
 
 @Data
@@ -55,8 +54,6 @@ public class Measure {
     @JsonProperty("objectId")
     private Subject subject;
 
-    @NotNull
     private Long time;
-    @NotNull
     private Double value;
 }

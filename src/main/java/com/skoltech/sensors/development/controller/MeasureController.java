@@ -23,7 +23,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -55,7 +54,7 @@ public class MeasureController {
 
     //    @Transactional
     @PostMapping(value = "/save", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Void> createResources(@RequestBody @Valid List<Measure> sensor) {
+    public ResponseEntity<Void> createResources(@RequestBody List<Measure> sensor) {
         sensorService.createSensor(sensor);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }

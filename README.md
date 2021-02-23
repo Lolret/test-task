@@ -32,26 +32,27 @@ Swagger не настроен.
 ## Популяция базы:
 ### inside db:
 
-        create table public.temp_json
-        (
-            values jsonb
-        );
-        copy public.temp_json from '/var/lib/postgresql/output.json';
-        
-        CREATE SEQUENCE id_seq
-            START WITH 1
-            INCREMENT BY 1
-            MINVALUE 1
-            NO MAXVALUE
-            CACHE 1;
-        
-        INSERT INTO measure
-        SELECT nextval('id_seq'),
-               CAST(values -> 'time' as bigint)            as time,
-               CAST(values -> 'value' as double precision) as value,
-               CAST(values -> 'sensorId' as bigint)        as object_id,
-               CAST(values -> 'objectId' as bigint)        as sensor_id
-        FROM temp_json;
+    create table public.temp_json
+    (
+        values jsonb
+    );
+    
+    copy public.temp_json from '/var/lib/postgresql/output.json';
+    
+    CREATE SEQUENCE id_seq
+        START WITH 1
+        INCREMENT BY 1
+        MINVALUE 1
+        NO MAXVALUE
+        CACHE 1;
+    
+    INSERT INTO measure
+    SELECT nextval('id_seq'),
+           CAST(values -> 'time' as bigint)            as time,
+           CAST(values -> 'value' as double precision) as value,
+           CAST(values -> 'sensorId' as bigint)        as subject_id,
+           CAST(values -> 'objectId' as bigint)        as sensor_id
+    FROM temp_json;
           
           
 # Тестирование
