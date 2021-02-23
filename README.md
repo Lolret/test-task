@@ -1,21 +1,16 @@
-# Тестовое задание для Сколтех
+# Тестовое задание
 
 Для фильтрации, агрегации HTTP-запросов используются библиотеки queryDSL, queryDSL-value-operators,
 нативные sql-запросы,
 "ручное" создание queryDSL-предикатов для точного выполнения требования с предикатами "from" и "to"
 (/api/history?id=1&from=1565654400&to=1565827200)
 
-После разворачивания проекта доступна swagger-спецификация по пути /swagger-ui.html
+После разворачивания проекта доступна swagger-спецификация по путям /swagger-ui.html и /v2/api-docs
 
-Swagger не настроен.
 
 Примеры запросов в файле api.http.
 
-Для сборки используется maven вместо gradle
-(сделать сборку на gradle не удалось за приемлемое время).
-
-Не сделано (из того что бы сделать хотелось):
-- маппинг Entity<->DTO
+Сборка возможно через сборщики maven и gradle.
 
 Для запуска необходимо:
 
@@ -24,10 +19,16 @@ Swagger не настроен.
     java8
 
 # Запуск
-
-    python generate_sensor_data.py (Если планируется популяция базы)
+    git clone https://github.com/Lolret/test-task.git
+    cd ./test-task
+    python generate_sensor_data.py (Если планируется популяция базы (~2.5m объектов))
+    
     docker-compose up -d
-    mvnw.cmd compile spring-boot:run
+    
+    gradlew bootRun
+        ИЛИ
+            mvnw compile spring-boot:run
+            (mvnw.cmd для win-машин)
 
 ## Популяция базы:
 ### inside db:
@@ -67,4 +68,8 @@ Swagger не настроен.
 
 ## Запуск:
 
-    mvnw.cmd compile test
+        gradlew test
+        ИЛИ
+            mvnw compile test
+            (mvnw.cmd для win-машин)
+
